@@ -6,7 +6,7 @@ package:
 
 source:
   git_rev: 7980377ff68dc3f7a922a07a517cab2494aa6331
-  git_url: https://github.com/msmolens/pubgeo.git
+  git_url: https://github.com/pubgeo/pubgeo.git
   patches:
     - fix-error-reading-tiff-input.patch
 
