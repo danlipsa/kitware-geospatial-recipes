@@ -1,0 +1,27 @@
+# This file created by conda-build 3.12.0
+# meta.yaml template originally from:
+# /tmp/kitware-geospatial-recipes_docker/recipes/purdue-reconstruction, last modified Thu Aug 16 17:01:49 2018
+# ------------------------------------------------
+
+package:
+    name: purdue-reconstruction
+    version: 0.1.1
+source:
+    patches:
+        - purdue-reconstruction.patch
+    sha256: 2e0f257156e79867dbfb5c65909c9fffba43e995b9789b200fabde62fbdcafb6
+    url: core3d-purdue-0.1.1.tar.gz
+build:
+    string: '0'
+requirements:
+    build:
+        - pcl
+        - vtk v8.1.1
+        - cgal
+        
+about:
+    home: https://gitlab.kitware.com/core3d/core3d-purdue/
+    summary: Files are shared by the core3d Purdue team.
+extra:
+    copy_test_source_files: true
+    final: true

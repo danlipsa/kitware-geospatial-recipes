@@ -29,8 +29,6 @@ requirements:
     - psycopg2 >=2.6.1
     - geoalchemy2 >=0.2.6
     - rasterio
-    # otherwise we get undefined errors
-    - jsoncpp=1.8.1.* # [osx]
 
 test:
   files:

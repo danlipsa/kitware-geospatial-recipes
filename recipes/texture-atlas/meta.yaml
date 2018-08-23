@@ -11,20 +11,20 @@ requirements:
     - cmake
     - ninja
     - vtk v8.1.1.*    # vtk from kitware-geospatial
-    - eigen 3.3.3.*
-    - opencv 3.3.1.*
+    - eigen
+    - opencv
     - libgdal 2.2.*
     # otherwise we get an undefined error
-    - x264 20131218
-    - libboost 1.67.*
+    - x264
+    - libboost
   run:
     - vtk v8.1.1.*    # vtk from kitware-geospatial
-    - eigen 3.3.3.*
-    - opencv 3.3.1.*
+    - eigen
+    - opencv
     - libgdal 2.2.*
     # otherwise we get an undefined error
-    - x264 20131218
-    - libboost 1.67.*
+    - x264
+    - libboost
 
 test:
   commands:
