@@ -15,6 +15,9 @@ build:
     string: '0'
 requirements:
     build:
+        - toolchain
+        - cmake
+        - ninja
         - libboost
         - libgdal 2.2.*
         - geotiff

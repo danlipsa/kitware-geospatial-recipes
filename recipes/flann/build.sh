@@ -4,7 +4,7 @@ mkdir build
 cd build
 
 # Make libraries
-cmake -G "Unix Makefiles" \
+cmake -G "Ninja" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=${PREFIX} \
       -DCMAKE_INSTALL_PREFIX:PATH=${PREFIX} \
@@ -13,6 +13,6 @@ cmake -G "Unix Makefiles" \
       -DBUILD_EXAMPLES:BOOL=OFF \
       ${SRC_DIR}
 
-make
-make install
+# compile and install
+ninja install
 

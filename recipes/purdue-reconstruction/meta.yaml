@@ -9,16 +9,24 @@ package:
 source:
     patches:
         - purdue-reconstruction.patch
-    sha256: 2e0f257156e79867dbfb5c65909c9fffba43e995b9789b200fabde62fbdcafb6
-    url: core3d-purdue-0.1.1.tar.gz
+    sha256: b66a548ca83bb326349993cd36a57be74808092d139fa527c7433f69ffe88de7
+    url: core3d-purdue-0.1.0-3.tar.gz
 build:
     string: '0'
 requirements:
     build:
-        - pcl
-        - vtk v8.1.1
-        - cgal
-        
+      - toolchain
+      - cmake
+      - ninja
+      - pcl
+      - vtk=v8.1.1
+      - cgal
+
+    run:
+      - pcl
+      - vtk=v8.1.1
+      - cgal
+
 about:
     home: https://gitlab.kitware.com/core3d/core3d-purdue/
     summary: Files are shared by the core3d Purdue team.

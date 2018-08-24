@@ -23,6 +23,9 @@ about:
 
 requirements:
     build:
+    - toolchain
+    - cmake
+    - ninja
     - hdf5 1.10.*
     - python
     - cmake

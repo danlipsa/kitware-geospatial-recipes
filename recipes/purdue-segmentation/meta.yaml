@@ -11,20 +11,25 @@ source:
 
 requirements:
   build:
+  - toolchain
+  - cmake
+  - ninja
   - eigen
   - liblas
   - cgal
   - pcl
-  - vtk v8.1.1
+  - vtk=v8.1.1
   - flann
   
   run:
-  - liblas
-  - cgal
-  - pcl
-  - vtk v8.1.1
-  - flann
   - eigen
+  - cgal
+  - flann
+  - liblas
+  - pcl
+  - vtk=v8.1.1
+
+
     
 about:
     home: https://gitlab.kitware.com/core3d/core3d-purdue/
