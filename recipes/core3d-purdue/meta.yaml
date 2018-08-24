@@ -4,10 +4,11 @@
 # ------------------------------------------------
 
 package:
-    name: purdue-segmentation
-    version: 0.1.1
+    name: core3d-purdue
+    version: 0.1
 source:
-    url: core3d-purdue-0.1.0.tgz
+    git_tag: packaging-required-fixes
+    git_url: git@gitlab.kitware.com:core3d/core3d-purdue.git
 
 requirements:
   build:
