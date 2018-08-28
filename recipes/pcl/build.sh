@@ -10,6 +10,7 @@ cmake -G "Ninja" \
       -DWITH_QT:BOOL=OFF \
       -DWITH_OPENGL:BOOL=OFF \
       -DWITH_VTK:BOOL=OFF \
+      -DWITH_QHULL:BOOL=ON \
       ${SRC_DIR}
 # compile & install
 ninja install

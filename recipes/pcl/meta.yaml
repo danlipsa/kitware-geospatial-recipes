@@ -20,11 +20,13 @@ requirements:
         - libboost
         - eigen
         - liblas
+        - qhull
     run:
         - flann
         - libboost
         - eigen
         - liblas
+        - qhull
 
 about:
     home: http://www.pointclouds.org
