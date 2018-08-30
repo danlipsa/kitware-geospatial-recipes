@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  git_rev: cd0def2d50515128c403476e0ff8c37cffd3317e
+  git_rev: eaed3ee93e0da0947c6530c65e142959e36fb528
   git_url: https://github.com/pubgeo/core3d-metrics.git
 
 build:
-  number: 6
+  number: 7
   noarch: python
 
 requirements:
