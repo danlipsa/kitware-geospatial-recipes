@@ -21,6 +21,8 @@ requirements:
         - eigen
         - liblas
         - qhull
+        - libpng=1.6.34 [osx]
+
     run:
         - flann
         - libboost
