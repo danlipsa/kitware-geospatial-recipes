@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index cba5eb3..25fafb2 100644
+index cba5eb3..052ef6e 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -173,7 +173,7 @@ if platform.system() == "Windows":
@@ -86,12 +86,23 @@ index cba5eb3..25fafb2 100644
                    # Extension("pcl.pcl_grabber", ["pcl/pcl_grabber.pyx", "pcl/grabber_callback.cpp"], language="c++", **ext_args),
                    # debug
                    # gdb_debug=True,
-@@ -536,7 +536,7 @@ else:
+@@ -536,14 +536,18 @@ else:
      # Find build/link options for PCL using pkg-config.
      pcl_libs = ["common", "features", "filters", "io", "kdtree", "octree",
                  "registration", "sample_consensus", "search", "segmentation",
 -                "surface", "tracking", "visualization"]
 +                "surface", "tracking"]
      pcl_libs = ["pcl_%s%s" % (lib, pcl_version) for lib in pcl_libs]
++    if platform.system() == "Darwin":
++        pcl_libs += ['clangdev']
++    print(pcl_libs)
  
      ext_args = defaultdict(list)
+     ext_args['include_dirs'].append(numpy.get_include())
+ 
+     for flag in pkgconfig('--cflags-only-I'):
+         ext_args['include_dirs'].append(flag[2:])
++    print(ext_args['include_dirs'])
+ 
+     # OpenNI?
+     # "-I/usr/include/openni"
