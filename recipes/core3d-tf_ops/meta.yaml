@@ -1,0 +1,17 @@
+package:
+  name: core3d-tf_ops
+  version: 0.0.1
+
+source:
+  path: /docker-share/spongezhang-danesfield
+  patches:
+    - core3d-tf_ops.patch
+
+build:
+  string: '0'
+
+requirements:
+  build:
+    - tensorflow-gpu==1.9
+  run:
+    - tensorflow-gpu==1.9
