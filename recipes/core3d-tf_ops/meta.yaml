@@ -3,15 +3,13 @@ package:
   version: 0.0.1
 
 source:
-  path: /docker-share/spongezhang-danesfield
   patches:
     - core3d-tf_ops.patch
-
-build:
-  string: '0'
+  git_branch: master
+  git_url: https://github.com/charlesq34/pointnet2.git
 
 requirements:
   build:
-    - tensorflow-gpu==1.9
+    - tensorflow-gpu
   run:
-    - tensorflow-gpu==1.9
+    - tensorflow-gpu

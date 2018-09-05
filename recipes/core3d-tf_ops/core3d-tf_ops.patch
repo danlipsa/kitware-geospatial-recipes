@@ -1,36 +1,43 @@
-diff --git a/danesfield/geon_fitting/tf_ops/grouping/tf_grouping_compile.sh b/danesfield/geon_fitting/tf_ops/grouping/tf_grouping_compile.sh
-index 17dedf9..52b0469 100755
---- a/danesfield/geon_fitting/tf_ops/grouping/tf_grouping_compile.sh
-+++ b/danesfield/geon_fitting/tf_ops/grouping/tf_grouping_compile.sh
-@@ -8,6 +8,6 @@ TF_LIB=$(python -c 'import tensorflow as tf; print(tf.sysconfig.get_lib())')
- ## TF1.2
- #g++ -std=c++11 tf_grouping.cpp tf_grouping_g.cu.o -o tf_grouping_so.so -shared -fPIC -I /localdata/xuzhang/anaconda3/envs/core3d-dev/lib/python3.6/site-packages/tensorflow/include -I /usr/local/cuda-8.0/include -lcudart -L /usr/local/cuda-8.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+diff --git a/tf_ops/3d_interpolation/tf_interpolate_compile.sh b/tf_ops/3d_interpolation/tf_interpolate_compile.sh
+index 34c9fda..c5766b9 100644
+--- a/tf_ops/3d_interpolation/tf_interpolate_compile.sh
++++ b/tf_ops/3d_interpolation/tf_interpolate_compile.sh
+@@ -1,5 +1,6 @@
+ # TF1.2
+-g++ -std=c++11 tf_interpolate.cpp -o tf_interpolate_so.so -shared -fPIC -I /usr/local/lib/python2.7/dist-packages/tensorflow/include -I /usr/local/cuda-8.0/include -lcudart -L /usr/local/cuda-8.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
++echo "tf_interpolate_compile.sh ${PREFIX}"
++g++ -std=c++11 tf_interpolate.cpp -o tf_interpolate_so.so -shared -fPIC -I ${PREFIX}/lib/python3.6/site-packages/tensorflow/include -I /usr/local/cuda-9.0/include -lcudart -L /usr/local/cuda-9.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
  
--/home/xuzhang/tool/cuda-9.0/bin/nvcc tf_grouping_g.cu -o tf_grouping_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
-+nvcc tf_grouping_g.cu -o tf_grouping_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
  # TF1.4
--g++ -std=c++11 tf_grouping.cpp tf_grouping_g.cu.o -o tf_grouping_so.so -shared -fPIC -I $TF_INC -I /home/xuzhang/tool/cuda-9.0/include -I $TF_INC/external/nsync/public -lcudart -L /home/xuzhang/tool/cuda-9.0/lib64/ -L $TF_LIB -ltensorflow_framework -O2 -D_GLIBCXX_USE_CXX11_ABI=0
-+g++ -std=c++11 tf_grouping.cpp tf_grouping_g.cu.o -o tf_grouping_so.so -shared -fPIC -I $TF_INC -I /usr/local/cuda/include -I $TF_INC/external/nsync/public -lcudart -L /usr/local/cuda/lib64/ -L $TF_LIB -ltensorflow_framework -O2
-diff --git a/danesfield/geon_fitting/tf_ops/interpolation/tf_interpolate_compile.sh b/danesfield/geon_fitting/tf_ops/interpolation/tf_interpolate_compile.sh
-index 0dc2b5f..60b330e 100755
---- a/danesfield/geon_fitting/tf_ops/interpolation/tf_interpolate_compile.sh
-+++ b/danesfield/geon_fitting/tf_ops/interpolation/tf_interpolate_compile.sh
-@@ -8,4 +8,4 @@ TF_LIB=$(python -c 'import tensorflow as tf; print(tf.sysconfig.get_lib())')
+ #g++ -std=c++11 tf_interpolate.cpp -o tf_interpolate_so.so -shared -fPIC -I /usr/local/lib/python2.7/dist-packages/tensorflow/include -I /usr/local/cuda-8.0/include -I /usr/local/lib/python2.7/dist-packages/tensorflow/include/external/nsync/public -lcudart -L /usr/local/cuda-8.0/lib64/ -L/usr/local/lib/python2.7/dist-packages/tensorflow -ltensorflow_framework -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+diff --git a/tf_ops/grouping/tf_grouping_compile.sh b/tf_ops/grouping/tf_grouping_compile.sh
+index b193367..6300fe1 100644
+--- a/tf_ops/grouping/tf_grouping_compile.sh
++++ b/tf_ops/grouping/tf_grouping_compile.sh
+@@ -1,8 +1,8 @@
+ #/bin/bash
+-/usr/local/cuda-8.0/bin/nvcc tf_grouping_g.cu -o tf_grouping_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
++/usr/local/cuda-9.0/bin/nvcc tf_grouping_g.cu -o tf_grouping_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
  
- #
- ## TF1.4
--g++ -std=c++11 tf_interpolate.cpp -o tf_interpolate_so.so -shared -fPIC -I $TF_INC -I /home/xuzhang/tool/cuda-9.0/include -I $TF_INC/external/nsync/public  -L /home/xuzhang/tool/cuda-9.0/lib64/ -lcudart -L$TF_LIB -ltensorflow_framework -O2 -D_GLIBCXX_USE_CXX11_ABI=0
-+g++ -std=c++11 tf_interpolate.cpp -o tf_interpolate_so.so -shared -fPIC -I $TF_INC -I /usr/local/cuda/include -I $TF_INC/external/nsync/public  -L /usr/local/cuda/lib64/ -lcudart -L$TF_LIB -ltensorflow_framework -O2
-diff --git a/danesfield/geon_fitting/tf_ops/sampling/tf_sampling_compile.sh b/danesfield/geon_fitting/tf_ops/sampling/tf_sampling_compile.sh
-index 7222dde..207468c 100755
---- a/danesfield/geon_fitting/tf_ops/sampling/tf_sampling_compile.sh
-+++ b/danesfield/geon_fitting/tf_ops/sampling/tf_sampling_compile.sh
-@@ -7,6 +7,6 @@ TF_LIB=$(python -c 'import tensorflow as tf; print(tf.sysconfig.get_lib())')
- ## TF1.2
- #g++ -std=c++11 tf_sampling.cpp tf_sampling_g.cu.o -o tf_sampling_so.so -shared -fPIC -I /localdata/xuzhang/anaconda3/envs/core3d-dev/lib/python3.6/site-packages/tensorflow/include -I /usr/local/cuda-8.0/include -lcudart -L /usr/local/cuda-8.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+ # TF1.2
+-g++ -std=c++11 tf_grouping.cpp tf_grouping_g.cu.o -o tf_grouping_so.so -shared -fPIC -I /usr/local/lib/python2.7/dist-packages/tensorflow/include -I /usr/local/cuda-8.0/include -lcudart -L /usr/local/cuda-8.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
++g++ -std=c++11 tf_grouping.cpp tf_grouping_g.cu.o -o tf_grouping_so.so -shared -fPIC -I ${PREFIX}/lib/python3.6/site-packages/tensorflow/include -I /usr/local/cuda-9.0/include -lcudart -L /usr/local/cuda-9.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
  
--/home/xuzhang/tool/cuda-9.0/bin/nvcc tf_sampling_g.cu -o tf_sampling_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
-+nvcc tf_sampling_g.cu -o tf_sampling_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
  # TF1.4
--g++ -std=c++11 tf_sampling.cpp tf_sampling_g.cu.o -o tf_sampling_so.so -shared -fPIC -I $TF_INC -I /home/xuzhang/tool/cuda-9.0/include -I $TF_INC/external/nsync/public -lcudart -L /home/xuzhang/tool/cuda-9.0/lib64/ -L$TF_LIB -ltensorflow_framework -O2 -D_GLIBCXX_USE_CXX11_ABI=0
-+g++ -std=c++11 tf_sampling.cpp tf_sampling_g.cu.o -o tf_sampling_so.so -shared -fPIC -I $TF_INC -I /usr/local/cuda/include -I $TF_INC/external/nsync/public -lcudart -L /usr/local/cuda/lib64/ -L$TF_LIB -ltensorflow_framework -O2
+ #g++ -std=c++11 tf_grouping.cpp tf_grouping_g.cu.o -o tf_grouping_so.so -shared -fPIC -I /usr/local/lib/python2.7/dist-packages/tensorflow/include -I /usr/local/cuda-8.0/include -I /usr/local/lib/python2.7/dist-packages/tensorflow/include/external/nsync/public -lcudart -L /usr/local/cuda-8.0/lib64/ -L/usr/local/lib/python2.7/dist-packages/tensorflow -ltensorflow_framework -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+diff --git a/tf_ops/sampling/tf_sampling_compile.sh b/tf_ops/sampling/tf_sampling_compile.sh
+index ed903f0..3142ac3 100644
+--- a/tf_ops/sampling/tf_sampling_compile.sh
++++ b/tf_ops/sampling/tf_sampling_compile.sh
+@@ -1,8 +1,9 @@
+ #/bin/bash
+-/usr/local/cuda-8.0/bin/nvcc tf_sampling_g.cu -o tf_sampling_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
++echo "tf_samping_compile.sh ${PREFIX}"
++/usr/local/cuda-9.0/bin/nvcc tf_sampling_g.cu -o tf_sampling_g.cu.o -c -O2 -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC
+ 
+ # TF1.2
+-g++ -std=c++11 tf_sampling.cpp tf_sampling_g.cu.o -o tf_sampling_so.so -shared -fPIC -I /usr/local/lib/python2.7/dist-packages/tensorflow/include -I /usr/local/cuda-8.0/include -lcudart -L /usr/local/cuda-8.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
++g++ -std=c++11 tf_sampling.cpp tf_sampling_g.cu.o -o tf_sampling_so.so -shared -fPIC -I ${PREFIX}/lib/python3.6/site-packages/tensorflow/include -I /usr/local/cuda-9.0/include -lcudart -L /usr/local/cuda-9.0/lib64/ -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+ 
+ # TF1.4
+ #g++ -std=c++11 tf_sampling.cpp tf_sampling_g.cu.o -o tf_sampling_so.so -shared -fPIC -I /usr/local/lib/python2.7/dist-packages/tensorflow/include -I /usr/local/cuda-8.0/include -I /usr/local/lib/python2.7/dist-packages/tensorflow/include/external/nsync/public -lcudart -L /usr/local/cuda-8.0/lib64/ -L/usr/local/lib/python2.7/dist-packages/tensorflow -ltensorflow_framework -O2 -D_GLIBCXX_USE_CXX11_ABI=0
