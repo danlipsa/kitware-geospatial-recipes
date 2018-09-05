@@ -1,12 +1,14 @@
-cd danesfield/geon_fitting/tf_ops/sampling
+echo ${PREFIX}
+export PREFIX
+cd tf_ops/sampling
 bash tf_sampling_compile.sh
 
 cd ../grouping
 bash tf_grouping_compile.sh
 
-cd ../interpolation
+cd ../3d_interpolation
 bash tf_interpolate_compile.sh
 
-cd ../../../..
+cd ..
 mkdir -p "${PREFIX}"/lib
-cp danesfield/geon_fitting/tf_ops/*/*.{so,cu.o} "${PREFIX}"/lib/
+cp */*.{so,cu.o} "${PREFIX}"/lib/
