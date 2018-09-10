@@ -1,4 +1,3 @@
-echo ${PREFIX}
 export PREFIX
 cd tf_ops/sampling
 bash tf_sampling_compile.sh
