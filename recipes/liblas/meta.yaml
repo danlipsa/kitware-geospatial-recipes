@@ -11,8 +11,10 @@ source:
         - liblas.patch
     sha256: 8f0adeea3a14c995513b833f4a92b5389ee78312b144eab6039f35985ee5ef02
     url: https://github.com/libLAS/libLAS/archive/1.8.1.zip
+
 build:
-    string: '0'
+    number: 1
+
 requirements:
     build:
         - toolchain

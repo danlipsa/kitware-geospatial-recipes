@@ -1,15 +1,15 @@
-{% set version = "0.1.0" %}
-
 package:
   name: pubgeo-core3d-metrics
-  version: {{ version }}
+  version: {{ environ['GIT_DESCRIBE_TAG'] ~ "." ~ environ['GIT_DESCRIBE_NUMBER'] ~ "." ~ environ['GIT_DESCRIBE_HASH'] }}
 
 source:
-  git_rev: eaed3ee93e0da0947c6530c65e142959e36fb528
+  patches:
+    - pubgeo-core3d-metrics.patch
+  git_branch: master
   git_url: https://github.com/pubgeo/core3d-metrics.git
 
 build:
-  number: 7
+  number: 1
   noarch: python
 
 requirements:
