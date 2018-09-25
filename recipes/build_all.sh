@@ -1,0 +1,11 @@
+conda build vtk
+conda build liblas
+conda build flann
+conda build pcl
+conda build python-pcl
+conda build texture-atlas
+conda build core3d-purdue
+conda build laspy
+conda build pubgeo-tools
+conda build pubgeo-core3d-metrics
+conda build gaia

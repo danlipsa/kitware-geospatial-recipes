@@ -27,7 +27,6 @@ requirements:
   - vtk=v8.1.1
 
 
-
 about:
     home: https://gitlab.kitware.com/core3d/core3d-purdue/
     summary: Files are shared by the core3d Purdue team.
