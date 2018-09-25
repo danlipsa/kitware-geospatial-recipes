@@ -45,7 +45,6 @@ cmake .. -G "Ninja" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
     -DVTK_RENDERING_BACKEND=OpenGL2 \
     -DModule_vtkRenderingMatplotlib=ON \
-    -DVTK_SMP_IMPLEMENTATION_TYPE:STRING=TBB \
     ${SCREEN_ARGS[@]} ${WITH_OSMESA[@]}
 
 # compile & install!
