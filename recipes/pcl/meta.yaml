@@ -9,8 +9,10 @@ package:
 source:
     sha256: 5738bd0da05f32ef3f7500feffec8d8821b5eb327d70d5a0b28a7eaef69d46f9
     url: https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.zip
+
 build:
-    string: '1'
+    number: 1
+
 requirements:
     build:
         - toolchain

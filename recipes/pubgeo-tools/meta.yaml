@@ -14,7 +14,7 @@ source:
     - fix-conda-forge-pdal-link.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:

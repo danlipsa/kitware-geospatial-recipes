@@ -6,6 +6,10 @@ source:
     git_branch: master
     git_url: git@gitlab.kitware.com:core3d/core3d-purdue.git
 
+build:
+    number: 1
+
+
 requirements:
   build:
   - toolchain
